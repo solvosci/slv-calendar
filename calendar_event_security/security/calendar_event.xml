@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="group_calendar_event_manager" model="res.groups">
+            <field name="name">Calendar: edit all events</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="calendar.calendar_event_rule_employee" model="ir.rule">
+            <field ref="calendar.model_calendar_event" name="model_id"/>
+            <field name="name">Only Followers Can Write/Delete Calendar Events</field>
+            <field name="domain_force">[('message_follower_ids', '=', user.partner_id.id)]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="True"/>
+            <field eval="[(4,ref('base.group_user'))]" name="groups"/>
+        </record>
+
+        <record id="calendar_event_rule_all" model="ir.rule">
+            <field ref="calendar.model_calendar_event" name="model_id"/>
+            <field name="name">Calendar: Edit All Events</field>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4,ref('group_calendar_event_manager'))]" />
+        </record>
+    </data>
+</odoo>
