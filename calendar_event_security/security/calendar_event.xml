@@ -11,7 +11,7 @@
         <record id="calendar.calendar_event_rule_employee" model="ir.rule">
             <field ref="calendar.model_calendar_event" name="model_id"/>
             <field name="name">Only Followers Can Write/Delete Calendar Events</field>
-            <field name="domain_force">[('message_follower_ids', '=', user.partner_id.id)]</field>
+            <field name="domain_force">['|',('message_follower_ids', '=', user.partner_id.id),('partner_ids','=',user.partner_id.id)]</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="True"/>
             <field name="perm_create" eval="False"/>
