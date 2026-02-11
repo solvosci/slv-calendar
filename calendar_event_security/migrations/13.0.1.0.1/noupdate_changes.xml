@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-
-    <record id="calendar.calendar_event_rule_employee" model="ir.rule">
-        <field name="domain_force">['|',('message_follower_ids', '=', user.partner_id.id),('partner_ids','=',user.partner_id.id)]</field>
-    </record>
-
-</odoo>
