@@ -10,7 +10,7 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "13.0.1.0.2",
+    "version": "17.0.1.0.0",
     "category": "Account",
     "website": "https://github.com/solvosci/slv-calendar",
     "depends": [
